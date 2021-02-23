@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  MenuItem,
-  FormControl,
-  Select,
-} from "@material-ui/core";
+import { MenuItem, FormControl, Select} from "@material-ui/core";
+import InfoBox from "./InfoBox";
 import './App.css';
 
 // STATE = How to write a variable in React
@@ -47,26 +44,29 @@ function App() {
   return (
     <div className="app">
       <div className="app_header">
-      <h1>COVID-19 TRACKER</h1>
-        <FormControl className="app_dropdown">
-          <Select variant="outlined" onChange={onCountryChange} on value={country}>
-            {/* {Loop through all countries and show a dropdown list} */}
-            <MenuItem value="worldwide">Worldwide</MenuItem>
-            {
-              countries.map(country => (
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              ))
-            }
+        <h1>COVID-19 TRACKER</h1>
+          <FormControl className="app_dropdown">
+            <Select variant="outlined" onChange={onCountryChange} on value={country}>
+              {/* {Loop through all countries and show a dropdown list} */}
+              <MenuItem value="worldwide">Worldwide</MenuItem>
+              {
+                countries.map(country => (
+                  <MenuItem value={country.value}>{country.name}</MenuItem>
+                ))
+              }
 
-          </Select>
-        </FormControl>
+            </Select>
+          </FormControl>
       </div>
-      {/* {Header} */}
-      {/* {Title + input dropdown field} */}
-      
-      {/* {InfoBox} */}
-      {/* {InfoBox} */}
-      {/* {InfoBox} */}
+
+      <div className="app_stats">
+        <InfoBox title="Coronavirus cases" cases={123} total={2000}/>
+        <InfoBox title="Recoveries" cases={1234} total={3000}/>
+        <InfoBox title="Deaths" cases={12345} total={4000}/>
+        {/* InfoBox title="Coronanvirus cases" */}
+        {/* InfoBox title="Coronanvirus recoveries" */}
+        {/* InfoBox title="Coronanvirus deaths" */}
+      </div>
       
       {/* {Table} */}      
       {/* {Graph} */}
